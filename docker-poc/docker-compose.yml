@@ -1,0 +1,13 @@
+# ThinkAdmin 安全审计复现环境
+# 用法: 在仓库根目录执行  docker compose -f docker-poc/docker-compose.yml up --build
+services:
+  thinkadmin:
+    build:
+      context: ..
+      dockerfile: docker-poc/Dockerfile
+    image: thinkadmin-audit:latest
+    ports:
+      - "8099:8099"
+    # 便于本机编辑代码即时生效（可选，去掉则用镜像内代码）
+    # volumes:
+    #   - ..:/app
